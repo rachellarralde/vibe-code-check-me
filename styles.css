@@ -1,0 +1,494 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0c0c0c;
+  color: #33ff33;
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Main Container Layout */
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "terminal sidebar"
+    "module-window sidebar";
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Terminal Container */
+.terminal {
+  grid-area: terminal;
+  width: 100%;
+  max-width: 900px;
+  background-color: #121212;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(51, 255, 51, 0.3);
+  overflow: hidden;
+  border: 1px solid #33ff33;
+  position: relative;
+}
+
+/* Terminal Header */
+.terminal-header {
+  background-color: #1a1a1a;
+  padding: 10px 15px;
+  border-bottom: 1px solid #33ff33;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
+}
+
+.header-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: #444;
+}
+
+.header-button:nth-child(1) {
+  background-color: #ff5f56;
+}
+
+.header-button:nth-child(2) {
+  background-color: #ffbd2e;
+}
+
+.header-button:nth-child(3) {
+  background-color: #27c93f;
+}
+
+.terminal-title,
+.module-title {
+  color: #33ff33;
+  font-size: 1.2em;
+  text-align: center;
+  flex-grow: 1;
+  padding-right: 50px;
+}
+
+/* Terminal Content */
+.terminal-content {
+  padding: 20px;
+  height: 50vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Commands History */
+.commands-history {
+  margin-bottom: 20px;
+}
+
+/* Scrollbar */
+.terminal-content::-webkit-scrollbar,
+.module-content-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.terminal-content::-webkit-scrollbar-track,
+.module-content-container::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+.terminal-content::-webkit-scrollbar-thumb,
+.module-content-container::-webkit-scrollbar-thumb {
+  background: #33ff33;
+  border-radius: 5px;
+}
+
+/* ASCII Art */
+.ascii-art {
+  color: #33ff33;
+  font-size: 0.7em;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #33ff33;
+}
+
+/* Welcome Text */
+.welcome-text {
+  margin-bottom: 30px;
+}
+
+.welcome-text p {
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px rgba(51, 255, 51, 0.7);
+}
+
+/* Command Prompt */
+.module-selector {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.command-prompt {
+  color: #ff5f56;
+  margin-right: 10px;
+}
+
+.input-area {
+  flex-grow: 1;
+}
+
+#command-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #33ff33;
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  outline: none;
+  caret-color: #33ff33;
+}
+
+/* Command History Item */
+.command-history-item {
+  display: flex;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted rgba(51, 255, 51, 0.3);
+}
+
+/* Help Sidebar */
+.help-sidebar {
+  grid-area: sidebar;
+  background-color: #121212;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #33ff33;
+  box-shadow: 0 0 20px rgba(51, 255, 51, 0.2);
+}
+
+.sidebar-header {
+  font-size: 1.2em;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #33ff33;
+  color: #ffbd2e;
+}
+
+.command-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.command-item {
+  display: flex;
+  align-items: center;
+}
+
+.command-item:hover {
+  background: rgba(51, 255, 51, 0.1);
+  cursor: pointer;
+}
+
+/* Module Window */
+.module-window {
+  grid-area: module-window;
+  background-color: #121212;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #33ff33;
+  box-shadow: 0 0 30px rgba(51, 255, 51, 0.3);
+  display: none; /* Hidden by default */
+}
+
+.module-content-container {
+  padding: 20px;
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.close-button {
+  color: #ff5f56;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 15px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Module Styling */
+.module {
+  margin-bottom: 30px;
+}
+
+.module-header {
+  font-size: 1.3em;
+  margin-bottom: 15px;
+  color: #ffbd2e;
+  border-bottom: 1px dashed #ffbd2e;
+  padding-bottom: 5px;
+  text-shadow: 0 0 5px rgba(255, 189, 46, 0.7);
+}
+
+.module-content {
+  padding-left: 10px;
+}
+
+.module-content h3 {
+  color: #ff5f56;
+  margin: 20px 0 10px;
+  font-size: 1.1em;
+}
+
+.module-content p {
+  margin-bottom: 8px;
+}
+
+/* Command Styling */
+.command {
+  color: #ff5f56;
+  font-weight: bold;
+}
+
+/* Warning Messages */
+.warning {
+  color: #ff5f56;
+  background-color: rgba(255, 95, 86, 0.1);
+  border-left: 3px solid #ff5f56;
+  padding: 10px;
+  margin: 15px 0;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Code Blocks */
+.code-block {
+  background-color: #0a0a0a;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  white-space: pre-wrap;
+  font-family: monospace;
+  overflow-x: auto;
+}
+
+/* Links */
+a {
+  color: #27c93f;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover {
+  color: #ffbd2e;
+  text-decoration: underline;
+}
+
+/* Defense Highlight */
+.defense {
+  color: #27c93f;
+  font-weight: bold;
+}
+
+/* Terminal Effects */
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.8;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.9;
+  }
+  98% {
+    opacity: 1;
+  }
+}
+
+.terminal::before,
+.module-window::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 16, 16, 0.05);
+  pointer-events: none;
+  z-index: 100;
+  animation: flicker 5s infinite;
+}
+
+/* Scan Line Effect */
+.terminal::after,
+.module-window::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(51, 255, 51, 0.1);
+  pointer-events: none;
+  z-index: 101;
+  animation: scanline 6s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Cursor Animation */
+.blinking-cursor {
+  animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Animation for text appearing */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Terminal ASCII in about section */
+.terminal-ascii {
+  margin-top: 20px;
+  font-size: 0.6em;
+  line-height: 1.2;
+}
+
+/* CRT effect */
+.terminal::after,
+.module-window::after {
+  content: "";
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 102;
+}
+
+/* Enhance the text shadow for better readability */
+.module-content p {
+  text-shadow: 0 0 2px rgba(51, 255, 51, 0.5);
+}
+
+/* Make sure code blocks stand out more */
+.code-block {
+  box-shadow: 0 0 10px rgba(51, 255, 51, 0.2) inset;
+}
+
+/* Add a slight glow to links */
+a {
+  text-shadow: 0 0 3px rgba(39, 201, 63, 0.5);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "terminal"
+      "module-window"
+      "sidebar";
+  }
+
+  .help-sidebar {
+    margin-top: 20px;
+    height: calc(100vh - 40px);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .terminal,
+  .module-window {
+    max-width: 100%;
+  }
+
+  .ascii-art {
+    font-size: 0.5em;
+  }
+
+  .terminal-content,
+  .module-content-container {
+    height: auto;
+    max-height: 50vh;
+  }
+
+  .module-content {
+    padding-left: 5px;
+  }
+}
