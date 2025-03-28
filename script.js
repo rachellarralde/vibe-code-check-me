@@ -68,6 +68,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Quiz functionality
+  const submitQuizBtn = document.getElementById("submit-quiz");
+  const quizResults = document.getElementById("quiz-results");
+  const scoreDisplay = document.getElementById("score-display");
+  const passMessage = document.getElementById("pass-message");
+  const failMessage = document.getElementById("fail-message");
+
+  // Correct answers for the quiz
+  const correctAnswers = {
+    q1: "c", // bcrypt with salt
+    q2: "a", // environment variables
+    q3: "c", // parameterized query
+    q4: "c", // escape output and CSP
+    q5: "c", // HttpOnly cookies and CSRF tokens
+  };
+
+  // Add event listener for quiz submission
+  if (submitQuizBtn) {
+    submitQuizBtn.addEventListener("click", () => {
+      let score = 0;
+
+      // Check each answer
+      Object.keys(correctAnswers).forEach((question) => {
+        const selectedAnswer = document.querySelector(
+          `input[name="${question}"]:checked`
+        );
+        if (
+          selectedAnswer &&
+          selectedAnswer.value === correctAnswers[question]
+        ) {
+          score++;
+        }
+      });
+
+      // Calculate percentage
+      const percentage = (score / Object.keys(correctAnswers).length) * 100;
+
+      // Display results
+      quizResults.style.display = "block";
+      scoreDisplay.textContent = `You scored ${score}/5 (${percentage}%)`;
+
+      // Show pass/fail message
+      if (percentage >= 80) {
+        passMessage.style.display = "block";
+        failMessage.style.display = "none";
+      } else {
+        passMessage.style.display = "none";
+        failMessage.style.display = "block";
+      }
+
+      // Add to command history
+      const resultMessage = `Quiz completed! Score: ${score}/5 (${percentage}%)`;
+      addCommandToHistory("trivia quiz");
+      addResponseToHistory(resultMessage);
+    });
+  }
+
   // Process commands
   function processCommand(command) {
     // Add command to terminal history
@@ -148,7 +205,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Only scroll to bottom if we're not displaying a module
-    if (!["help", "secrets", "injection", "xss", "auth", "deps", "headers", "tools", "owasp", "about"].includes(command)) {
+    if (
+      ![
+        "help",
+        "secrets",
+        "injection",
+        "xss",
+        "auth",
+        "deps",
+        "headers",
+        "tools",
+        "owasp",
+        "about",
+        "trivia",
+      ].includes(command)
+    ) {
       terminalContent.scrollTop = terminalContent.scrollHeight;
     }
   }
