@@ -478,6 +478,100 @@ document.addEventListener("DOMContentLoaded", function () {
   // Uncomment to enable keystroke sounds
   // addKeyStrokeSounds();
 
+  // Utility function for sanitizing user input
+  function sanitizeInput(input) {
+    // Remove any HTML tags and limit to alphanumeric characters, spaces, and common punctuation
+    return input.replace(/<[^>]*>/g, '').replace(/[^\w\s.,?!-]/g, '');
+  }
+  
+  // Process commands with sanitization
+  function processCommand(command) {
+    // Sanitize the command
+    const sanitizedCommand = sanitizeInput(command.trim().toLowerCase());
+    
+    // Add command to terminal history
+    addCommandToHistory(command);
+    
+    // Process commands
+    switch (command) {
+      case "help":
+        displayModule("help-module", "Help: Available Commands");
+        break;
+      case "secrets":
+        displayModule("secrets-module", "Protect Your Secrets");
+        break;
+      case "injection":
+        displayModule("injection-module", "SQL Injections: Close The Door");
+        break;
+      case "xss":
+        displayModule("xss-module", "Cross-Site Scripting Defense");
+        break;
+      case "auth":
+        displayModule("auth-module", "Authentication Fortress");
+        break;
+      case "deps":
+        displayModule("deps-module", "Dependency Defense");
+        break;
+      case "headers":
+        displayModule("headers-module", "HTTP Headers Shield");
+        break;
+      case "tools":
+        displayModule("tools-module", "Security Toolkit");
+        break;
+      case "owasp":
+        displayModule("owasp-module", "OWASP Top 10 Breakdown");
+        break;
+      case "about":
+        displayModule("about-module", "About This Terminal");
+        break;
+      case "clear":
+        clearTerminal();
+        break;
+      case "matrix":
+        addCommandResponse("Wake up, vibe coder...");
+        document.body.style.color = "#00ff00";
+        setTimeout(() => {
+          document.body.style.color = "#33ff33";
+        }, 5000);
+        break;
+      case "sudo":
+        addCommandResponse(
+          "Nice try, hacker. But there's no sudo in the vibe zone!"
+        );
+        break;
+      case "hack":
+        addCommandResponse("Ethical hacking only in this terminal, please!");
+        break;
+      case "password":
+        addCommandResponse(
+          "All your passwords should be at least as secure as: correcthorsebatterystaple"
+        );
+        break;
+      case "coffee":
+        addCommandResponse("☕ Brewing some secure code with your coffee...");
+        break;
+      case "trivia":
+        const randomTrivia =
+          securityTrivia[Math.floor(Math.random() * securityTrivia.length)];
+        addCommandResponse(`🔐 SECURITY TRIVIA: ${randomTrivia}`);
+        break;
+      case "":
+        // Do nothing for empty command
+        break;
+      default:
+        addCommandResponse(
+          `Command not found: ${command}. Type 'help' to see available commands.`,
+          true
+        );
+        break;
+    }
+
+    // Remove automatic scrolling when displaying modules
+    if (!command.trim() || command === "clear") {
+      terminalContent.scrollTop = terminalContent.scrollHeight;
+    }
+  }
+
   // Prevent automatic scrolling in terminal content
   terminalContent.addEventListener("scroll", function (e) {
     e.stopPropagation();
