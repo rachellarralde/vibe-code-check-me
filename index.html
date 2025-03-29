@@ -32,12 +32,13 @@
    ▄█    █▄   ▄█  ▀█████████▄     ▄████████         ▄████████    ▄█    ████  ▄████████  ▄████████    ▄█      ████
   ███    ███ ███    ███    ███   ███    ███        ███    ███   ███    ███ ███    ███   ███    ███  ███     ███ 
   ███    ███ ███▌   ███    ███   ███    █▀         ███    █▀    ███    ███ ███          ███    █▀   ███    ███
- ▄███    ███ ███▌  ▄███▄▄▄██▀    ███               ███         ▄███▄▄▄▄███ ███          ███        ▄███▄▄▄▄███
-▀▀███    ███ ███▌ ▀▀███▀▀▀██▄  ▀████████         ▀████    ███ ▀▀███▀▀▀▄███ ████████   ▀████    ███ ▀▀███▀▀▀▄███        
+      ▄███    ███ ███▌  ▄███▄▄▄██▀    ███               ███         ▄███▄▄▄▄███ ███          ███        ▄███▄▄▄▄███
+     ▀▀███    ███ ███▌ ▀▀███▀▀▀██▄  ▀████████         ▀████    ███ ▀▀███▀▀▀▄███ ████████   ▀████    ███ ▀▀███▀▀▀▄███        
   ███    ███ ███    ███    ██▄   ███               ███    ███   ███    ███ ███          ███    ███   ███    ███
   ███    ███ ███    ███    ███    ▄█    ███         ▄█    ███   ███    ███ ███    ███    ▄█    ███   ███     ███
   ███▄▄▄▄█▀  █▀   ▄█████████▀   ▄████████▀        ▄████████▀    ████   ███ ████████▀   ▄████████▀    ███      ███
-                        </pre>
+                        </pre
+              >
             </div>
             <div class="welcome-text">
               <p>&gt; WELCOME TO THE VIBECODECHECK.ME TERMINAL</p>
@@ -159,38 +160,37 @@
           <h3>// THE SOLUTION</h3>
           <p>1. Use environment variables for sensitive data</p>
           <p>2. Add .env files to your .gitignore</p>
-          <p>3. Use secret scanning tools</p>
+          <p>3. Scan your codebase for exposed secrets regularly</p>
 
-          <h3>// TOOLS FOR YOUR ARSENAL</h3>
-          <p>
-            $ <span class="command">GitGuardian</span> - Free for small teams,
-            scans for 350+ types of secrets
-          </p>
-          <p>
-            $ <span class="command">Gitleaks</span> - Open-source alternative,
-            works in CI/CD pipelines
-          </p>
-
-          <h3>// CODE IMPLEMENTATION</h3>
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
           <div class="code-block">
-            <p># BAD VIBES - Don't do this!</p>
-            <p>api_key = "sk_live_51LmGhuTygk7tRTdK23..."</p>
-            <p>db_password = "super_secret_password123"</p>
-            <p></p>
-            <p># GOOD VIBES - Do this instead!</p>
-            <p>import os</p>
-            <p>from dotenv import load_dotenv</p>
-            <p></p>
-            <p>load_dotenv() # Load from .env file</p>
-            <p>api_key = os.environ.get("API_KEY")</p>
-            <p>db_password = os.environ.get("DB_PASSWORD")</p>
+            <p>
+              💬 "Refactor my code to remove any hardcoded secrets like API keys
+              or passwords and replace them with environment variables."
+            </p>
+            <p>
+              💬 "Show me how to load API keys from a .env file and use them
+              securely in my app."
+            </p>
+            <p>
+              💬 "Add logic that uses os.environ to fetch sensitive variables
+              instead of hardcoding them."
+            </p>
+            <p>
+              💬 "Write a .gitignore file and make sure .env is listed so I
+              don’t push secrets to GitHub."
+            </p>
+            <p>
+              💬 "Scan my codebase and warn me if you detect any hardcoded
+              credentials or secrets."
+            </p>
           </div>
 
           <h3>// MISSION CHECKLIST</h3>
           <p>✅ Check your code for hardcoded secrets</p>
-          <p>✅ Set up GitGuardian or Gitleaks</p>
-          <p>✅ Use environment variables or a vault service</p>
-          <p>✅ Configure CI/CD scanning for secrets</p>
+          <p>✅ Store sensitive data in environment variables</p>
+          <p>✅ Keep your .env file out of GitHub</p>
+          <p>✅ Prompt your AI to review your project for secret exposures</p>
         </div>
       </div>
 
@@ -208,50 +208,51 @@
           </p>
 
           <h3>// THE SOLUTION</h3>
-          <p>1. Use parameterized queries/prepared statements</p>
+          <p>1. Use parameterized queries or prepared statements</p>
           <p>2. Validate all user inputs</p>
-          <p>3. Use an ORM (Object-Relational Mapping) library</p>
+          <p>
+            3. Use an ORM (Object-Relational Mapping) library to reduce query
+            risk
+          </p>
 
-          <h3>// CODE IMPLEMENTATION</h3>
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
           <div class="code-block">
-            <p># BAD VIBES - SQL Injection risk</p>
-            <p>username = request.form['username']</p>
-            <p>query = f"SELECT * FROM users WHERE username = '{username}'"</p>
             <p>
-              results = db.execute(query) # DANGER: Direct user input in query
+              💬 "Update my database queries to use parameterized statements
+              instead of raw string concatenation."
             </p>
-            <p></p>
-            <p># GOOD VIBES - Parameterized queries</p>
-            <p>username = request.form['username']</p>
-            <p>query = "SELECT * FROM users WHERE username = ?"</p>
             <p>
-              results = db.execute(query, [username]) # SAFE: Parameters handled
-              properly
+              💬 "Scan my codebase for any SQL queries that are vulnerable to
+              injection and suggest secure replacements."
+            </p>
+            <p>
+              💬 "Add input validation to all form fields that interact with my
+              database."
+            </p>
+            <p>
+              💬 "Show me how to implement SQL queries safely using an ORM like
+              SQLAlchemy or Prisma."
+            </p>
+            <p>
+              💬 "Test this login form code for SQL injection vulnerabilities
+              and explain how to fix them."
             </p>
           </div>
 
-          <h3>// COMMON ATTACK STRINGS</h3>
+          <h3>// ATTACK STRINGS TO AVOID</h3>
           <div class="code-block">
             <p>admin' --</p>
             <p>admin' OR 1=1 --</p>
             <p>'; DROP TABLE users; --</p>
           </div>
 
-          <h3>// SCANNING TOOLS</h3>
-          <p>
-            $ <span class="command">OWASP ZAP</span> - Free scanner to detect
-            SQL injection vulnerabilities
-          </p>
-          <p>
-            $ <span class="command">SQLmap</span> - Open-source tool to test for
-            SQL injection flaws
-          </p>
-
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Audit code for direct string concatenation in queries</p>
-          <p>✅ Implement parameterized queries everywhere</p>
-          <p>✅ Add input validation for all form fields</p>
-          <p>✅ Consider using a trusted ORM library</p>
+          <p>✅ Eliminate raw SQL strings with user input</p>
+          <p>
+            ✅ Replace all queries with parameterized or prepared statements
+          </p>
+          <p>✅ Add validation and sanitation for every user input field</p>
+          <p>✅ Use an ORM to abstract and protect your SQL layer</p>
         </div>
       </div>
 
@@ -271,298 +272,423 @@
 
           <h3>// THE SOLUTION</h3>
           <p>1. Implement strong password policies</p>
-          <p>2. Use secure password hashing (bcrypt, Argon2)</p>
+          <p>2. Use secure password hashing (e.g. bcrypt, Argon2)</p>
           <p>3. Add multi-factor authentication (MFA)</p>
           <p>4. Implement account lockouts and rate limiting</p>
 
-          <h3>// CODE IMPLEMENTATION</h3>
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
           <div class="code-block">
-            <p># Password hashing with bcrypt</p>
-            <p>import bcrypt</p>
-            <p></p>
-            <p># Storing a password</p>
-            <p>password = "user_password"</p>
-            <p>salt = bcrypt.gensalt(rounds=12)</p>
-            <p>hashed_password = bcrypt.hashpw(password.encode(), salt)</p>
-            <p>store_in_database(username, hashed_password)</p>
-            <p></p>
-            <p># Verifying a password</p>
-            <p>stored_password = get_from_database(username)</p>
-            <p>is_valid = bcrypt.checkpw(password.encode(), stored_password)</p>
+            <p>
+              💬 "Set up secure password hashing in my app using bcrypt with
+              salt and proper rounds."
+            </p>
+            <p>
+              💬 "Add account lockout logic that prevents brute force attacks
+              after 5 failed login attempts."
+            </p>
+            <p>
+              💬 "Help me implement multi-factor authentication using email or
+              an authenticator app."
+            </p>
+            <p>
+              💬 "Check my session management to ensure I'm using secure cookies
+              with HttpOnly and SameSite flags."
+            </p>
+            <p>
+              💬 "Add rate limiting to my login endpoint to prevent credential
+              stuffing attacks."
+            </p>
           </div>
 
           <h3>// COMMON AUTH MISTAKES</h3>
           <p>⛔ Storing passwords in plain text</p>
           <p>⛔ Using weak hashing algorithms (MD5, SHA1)</p>
           <p>⛔ No protection against brute force attacks</p>
-          <p>⛔ Insecure session management</p>
-
-          <h3>// RECOMMENDED FREE LIBRARIES</h3>
-          <p>
-            $ <span class="command">Passport.js</span> - Authentication
-            middleware for Node.js
-          </p>
-          <p>
-            $ <span class="command">Flask-Security</span> - Security extensions
-            for Flask
-          </p>
-          <p>
-            $ <span class="command">Django Authentication</span> - Built-in auth
-            for Django
-          </p>
+          <p>⛔ Insecure session or token handling</p>
 
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Use strong password hashing algorithms</p>
-          <p>✅ Implement account lockout after failed attempts</p>
-          <p>✅ Add multi-factor authentication</p>
+          <p>✅ Use strong password hashing algorithms like bcrypt or Argon2</p>
+          <p>✅ Lock accounts after repeated failed login attempts</p>
+          <p>✅ Add multi-factor authentication for all users</p>
           <p>✅ Use HTTPS for all authentication requests</p>
-          <p>✅ Set secure and HttpOnly cookie flags</p>
+          <p>✅ Set secure and HttpOnly cookie flags for sessions or tokens</p>
         </div>
       </div>
-      
+
       <!-- Move the newly added modules inside the hidden-modules div -->
       <div class="module" id="xss-module">
         <div class="module-header">== CROSS-SITE SCRIPTING DEFENSE ==</div>
         <div class="module-content">
           <p class="warning">SECURITY ALERT: XSS VULNERABILITIES DETECTED</p>
-      
+
           <h3>// THE PROBLEM</h3>
-          <p>Attackers can inject malicious scripts into web pages viewed by other users, stealing cookies, session tokens, or redirecting users to malicious sites.</p>
-      
+          <p>
+            Attackers can inject malicious scripts into web pages viewed by
+            other users, stealing cookies, session tokens, or redirecting users
+            to malicious sites.
+          </p>
+
           <h3>// THE SOLUTION</h3>
           <p>1. Sanitize all user input</p>
-          <p>2. Implement Content Security Policy (CSP)</p>
-          <p>3. Use proper output encoding</p>
-      
-          <h3>// CODE IMPLEMENTATION</h3>
+          <p>2. Implement a strong Content Security Policy (CSP)</p>
+          <p>3. Use proper output encoding and escaping</p>
+
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
           <div class="code-block">
-            <p># BAD VIBES - XSS vulnerability</p>
-            <p>username = request.GET.get('username')</p>
-            <p>html = f"<div>Welcome, {username}!</div>"</p>
-            <p>return HttpResponse(html)  # DANGER: Unvalidated input</p>
-            <p></p>
-            <p># GOOD VIBES - Escape user input</p>
-            <p>from html import escape</p>
-            <p>username = escape(request.GET.get('username'))</p>
-            <p>html = f"<div>Welcome, {username}!</div>"</p>
-            <p>return HttpResponse(html)  # SAFE: Input is escaped</p>
+            <p>
+              💬 "Scan my project for any spots where user input is injected
+              into the DOM without sanitization."
+            </p>
+            <p>
+              💬 "Add proper escaping to all user-generated input before
+              displaying it in HTML."
+            </p>
+            <p>
+              💬 "Help me implement a secure Content Security Policy header to
+              prevent XSS attacks."
+            </p>
+            <p>
+              💬 "Add DOM sanitization using a library like DOMPurify to clean
+              HTML safely."
+            </p>
+            <p>
+              💬 "Replace any dangerouslySetInnerHTML or innerHTML usage with
+              safe alternatives."
+            </p>
           </div>
-      
+
           <h3>// COMMON ATTACK VECTORS</h3>
           <div class="code-block">
             <p>&lt;script&gt;alert('XSS')&lt;/script&gt;</p>
             <p>&lt;img src="x" onerror="alert('XSS')" /&gt;</p>
             <p>&lt;a href="javascript:alert('XSS')"&gt;Click me&lt;/a&gt;</p>
           </div>
-      
-          <h3>// RECOMMENDED TOOLS</h3>
-          <p>$ <span class="command">DOMPurify</span> - Clean HTML and prevent XSS attacks</p>
-          <p>$ <span class="command">OWASP ZAP</span> - Scanner that can find XSS vulnerabilities</p>
-      
+
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Sanitize user input and encode all output</p>
-          <p>✅ Implement Content Security Policy headers</p>
-          <p>✅ Use HttpOnly cookies to protect session tokens</p>
-          <p>✅ Validate data on both client and server sides</p>
+          <p>✅ Sanitize and validate all user inputs</p>
+          <p>✅ Escape or encode dynamic values before inserting into HTML</p>
+          <p>✅ Add Content Security Policy headers to block inline scripts</p>
+          <p>✅ Use libraries like DOMPurify to safely render HTML</p>
+          <p>✅ Store session tokens in HttpOnly cookies</p>
         </div>
       </div>
-      
+
       <div class="module" id="deps-module">
         <div class="module-header">== DEPENDENCY DEFENSE ==</div>
         <div class="module-content">
           <p class="warning">SECURITY SCAN: VULNERABLE DEPENDENCIES DETECTED</p>
-      
+
           <h3>// THE PROBLEM</h3>
-          <p>Your app is only as secure as its weakest dependency. Outdated packages can leave your app vulnerable to known exploits.</p>
-      
+          <p>
+            Your app is only as secure as its weakest dependency. Outdated
+            packages can leave your app vulnerable to known exploits.
+          </p>
+
           <h3>// THE SOLUTION</h3>
           <p>1. Regularly audit dependencies for vulnerabilities</p>
-          <p>2. Use dependency scanning tools</p>
-          <p>3. Keep all packages updated</p>
-          <p>4. Add lockfiles to version control</p>
-      
-          <h3>// COMMAND ARSENAL</h3>
+          <p>2. Set up automated scanning and update checks</p>
+          <p>3. Keep all packages and frameworks updated</p>
+          <p>4. Use lockfiles and version pinning for consistency</p>
+
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
           <div class="code-block">
-            <p># Check for vulnerabilities in npm packages</p>
-            <p>$ npm audit</p>
-            <p></p>
-            <p># Fix vulnerabilities automatically</p>
-            <p>$ npm audit fix</p>
-            <p></p>
-            <p># Check for vulnerabilities in Python packages</p>
-            <p>$ pip-audit</p>
-            <p></p>
-            <p># Check for vulnerabilities in Ruby gems</p>
-            <p>$ bundle audit</p>
+            <p>
+              💬 "Scan my package.json for outdated or vulnerable dependencies
+              and recommend updates."
+            </p>
+            <p>
+              💬 "Add automated dependency scanning to my CI/CD pipeline using
+              GitHub Actions or another tool."
+            </p>
+            <p>
+              💬 "Check for known CVEs in my requirements.txt or Pipfile and
+              suggest secure versions."
+            </p>
+            <p>
+              💬 "Enable Dependabot or an equivalent to automatically track and
+              suggest package updates."
+            </p>
+            <p>
+              💬 "Explain how to use lockfiles and version pinning to prevent
+              dependency drift."
+            </p>
           </div>
-      
-          <h3>// RECOMMENDED TOOLS</h3>
-          <p>$ <span class="command">Snyk</span> - Dependency vulnerability scanner</p>
-          <p>$ <span class="command">Dependabot</span> - Automated dependency updates</p>
-          <p>$ <span class="command">OWASP Dependency-Check</span> - Open source vulnerability scanner</p>
-      
+
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Set up automated dependency scanning in CI/CD</p>
-          <p>✅ Keep package.json/requirements.txt up to date</p>
-          <p>✅ Review and update dependencies monthly</p>
-          <p>✅ Use version pinning for critical dependencies</p>
+          <p>✅ Scan dependencies for known vulnerabilities regularly</p>
+          <p>✅ Keep your package files updated (npm, pip, gem, etc.)</p>
+          <p>✅ Use lockfiles and pin versions to avoid unexpected changes</p>
+          <p>✅ Automate scanning in your CI/CD workflow</p>
         </div>
       </div>
-  
+
       <div class="module" id="headers-module">
         <div class="module-header">== HTTP HEADERS SHIELD ==</div>
         <div class="module-content">
-          <p class="warning">SECURITY SCAN: MISSING SECURITY HEADERS DETECTED</p>
-      
+          <p class="warning">
+            SECURITY SCAN: MISSING SECURITY HEADERS DETECTED
+          </p>
+
           <h3>// THE PROBLEM</h3>
-          <p>Missing security headers leave your app vulnerable to clickjacking, MIME sniffing, and other browser-based attacks.</p>
-      
+          <p>
+            Missing security headers leave your app vulnerable to clickjacking,
+            MIME sniffing, and other browser-based attacks.
+          </p>
+
           <h3>// THE SOLUTION</h3>
-          <p>1. Implement security headers on all responses</p>
-          <p>2. Use a Content Security Policy (CSP)</p>
-          <p>3. Enable HTTPS with proper HSTS headers</p>
-      
-          <h3>// ESSENTIAL HEADERS</h3>
+          <p>1. Set essential security headers on all responses</p>
+          <p>2. Define a Content Security Policy (CSP)</p>
+          <p>3. Enable HTTPS with HSTS headers</p>
+
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
           <div class="code-block">
-            <p># Content-Security-Policy</p>
-            <p>Prevents XSS by controlling which resources can be loaded</p>
-            <p></p>
-            <p># X-Frame-Options: DENY</p>
-            <p>Prevents your site from being loaded in iframes (stops clickjacking)</p>
-            <p></p>
-            <p># Strict-Transport-Security</p>
-            <p>Forces browsers to use HTTPS for your domain</p>
-            <p></p>
-            <p># X-Content-Type-Options: nosniff</p>
-            <p>Prevents browsers from MIME-sniffing responses</p>
+            <p>
+              💬 "Add all recommended HTTP security headers to my Express.js app
+              using Helmet."
+            </p>
+            <p>
+              💬 "Enable CSP, X-Frame-Options, HSTS, and other headers in my
+              Django project."
+            </p>
+            <p>
+              💬 "Explain what each security header does and add them to my
+              server configuration."
+            </p>
+            <p>
+              💬 "Help me write a custom Content Security Policy that blocks
+              inline scripts and restricts external domains."
+            </p>
+            <p>
+              💬 "Test my deployed site for missing headers and suggest what I
+              need to fix."
+            </p>
           </div>
-      
-          <h3>// CODE IMPLEMENTATION</h3>
-          <div class="code-block">
-            <p># Express.js implementation</p>
-            <p>const helmet = require('helmet');</p>
-            <p>app.use(helmet()); // Adds all security headers</p>
-            <p></p>
-            <p># Django implementation</p>
-            <p>MIDDLEWARE = [</p>
-            <p>    'django.middleware.security.SecurityMiddleware',</p>
-            <p>    # ... other middleware</p>
-            <p>]</p>
-            <p>SECURE_BROWSER_XSS_FILTER = True</p>
-            <p>SECURE_CONTENT_TYPE_NOSNIFF = True</p>
-          </div>
-      
-          <h3>// TESTING TOOLS</h3>
-          <p>$ <span class="command">SecurityHeaders.com</span> - Free scanner for security headers</p>
-          <p>$ <span class="command">Mozilla Observatory</span> - Tests your site's security</p>
-      
+
+          <h3>// ESSENTIAL HEADERS TO IMPLEMENT</h3>
+          <p>
+            🛡️ Content-Security-Policy – Prevents XSS by controlling what
+            scripts and resources are allowed
+          </p>
+          <p>
+            🛡️ X-Frame-Options: DENY – Stops clickjacking by blocking iframe
+            embedding
+          </p>
+          <p>
+            🛡️ Strict-Transport-Security – Enforces HTTPS and prevents downgrade
+            attacks
+          </p>
+          <p>
+            🛡️ X-Content-Type-Options: nosniff – Prevents MIME-type sniffing
+            attacks
+          </p>
+
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Implement all security headers</p>
-          <p>✅ Create a Content Security Policy</p>
-          <p>✅ Enable HTTPS with HSTS headers</p>
-          <p>✅ Regularly test with security scanners</p>
+          <p>✅ Add all critical HTTP security headers</p>
+          <p>✅ Write and apply a Content Security Policy</p>
+          <p>✅ Enforce HTTPS using HSTS</p>
+          <p>✅ Test your site with online header scanners regularly</p>
         </div>
       </div>
-  
+
       <div class="module" id="tools-module">
         <div class="module-header">== SECURITY TOOLKIT ==</div>
         <div class="module-content">
-          <p class="warning">SECURITY ALERT: ARM YOURSELF WITH THE RIGHT TOOLS</p>
-      
-          <h3>// ESSENTIAL SECURITY TOOLS</h3>
-          
-          <h3>// SCANNING & TESTING</h3>
-          <p>$ <span class="command">OWASP ZAP</span> - Free web application security scanner</p>
-          <p>$ <span class="command">Burp Suite</span> - Advanced web security testing (free community edition)</p>
-          <p>$ <span class="command">Nmap</span> - Network discovery and security auditing</p>
-          <p>$ <span class="command">SQLmap</span> - Automated SQL injection testing</p>
-      
-          <h3>// DEPENDENCY SCANNING</h3>
-          <p>$ <span class="command">npm audit</span> - Built-in Node.js package scanner</p>
-          <p>$ <span class="command">Snyk</span> - Finds and fixes vulnerabilities (free tier available)</p>
-          <p>$ <span class="command">OWASP Dependency-Check</span> - Open source scanner</p>
-      
-          <h3>// SECRET SCANNING</h3>
-          <p>$ <span class="command">GitGuardian</span> - Scans for leaked secrets in code</p>
-          <p>$ <span class="command">Gitleaks</span> - Open source secret scanner</p>
-          <p>$ <span class="command">truffleHog</span> - Searches through git repositories for secrets</p>
-      
-          <h3>// MONITORING & DEFENSE</h3>
-          <p>$ <span class="command">ModSecurity</span> - Open source WAF (Web Application Firewall)</p>
-          <p>$ <span class="command">Fail2ban</span> - Protects servers from brute force attacks</p>
-          <p>$ <span class="command">Suricata</span> - Network security monitoring</p>
-      
-          <h3>// LEARNING RESOURCES</h3>
-          <p>$ <span class="command">OWASP WebGoat</span> - Deliberately insecure application for learning</p>
-          <p>$ <span class="command">Portswigger Web Security Academy</span> - Free web security training</p>
-          <p>$ <span class="command">HackTheBox</span> - Hands-on cybersecurity training</p>
-      
+          <p class="warning">
+            SECURITY ALERT: ARM YOURSELF WITH THE RIGHT TOOLS
+          </p>
+
+          <h3>// ESSENTIAL SECURITY AREAS TO COVER</h3>
+          <p>🛠️ Scanning & Testing</p>
+          <p>🔍 Dependency Management</p>
+          <p>🔑 Secret Detection</p>
+          <p>🧱 Runtime Protection & Monitoring</p>
+          <p>📚 Skill Building & Practice</p>
+
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
+          <div class="code-block">
+            <p>
+              💬 "What are the best free tools to scan my web app for security
+              vulnerabilities?"
+            </p>
+            <p>
+              💬 "Set up secret scanning and dependency checks in my project
+              using open-source tools."
+            </p>
+            <p>
+              💬 "Add a GitHub Action to my repo that runs security scans on
+              every pull request."
+            </p>
+            <p>
+              💬 "Install a web application firewall or local tool to block
+              brute force attacks."
+            </p>
+            <p>
+              💬 "Help me practice finding and fixing vulnerabilities using
+              beginner-friendly labs."
+            </p>
+          </div>
+
+          <h3>// EXAMPLE PROMPT OUTPUTS MIGHT INCLUDE</h3>
+          <p>• OWASP ZAP or Burp Suite for web app scanning</p>
+          <p>• npm audit, pip-audit, or Snyk for dependency checks</p>
+          <p>• GitGuardian or Gitleaks for secret detection</p>
+          <p>• Fail2ban or ModSecurity for runtime defense</p>
+          <p>
+            • WebGoat, PortSwigger Academy, or HackTheBox for hands-on training
+          </p>
+
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Set up regular security scans of your applications</p>
-          <p>✅ Implement dependency scanning in CI/CD pipeline</p>
-          <p>✅ Use tools appropriate for your tech stack</p>
-          <p>✅ Practice on deliberately vulnerable applications</p>
+          <p>
+            ✅ Ask your AI to recommend tools specific to your language or
+            framework
+          </p>
+          <p>✅ Set up security scans for code, secrets, and dependencies</p>
+          <p>✅ Use runtime protection tools if you’re deploying to a server</p>
+          <p>✅ Practice ethical hacking to build security awareness</p>
         </div>
       </div>
-      
+
       <div class="module" id="owasp-module">
         <div class="module-header">== OWASP TOP 10 BREAKDOWN ==</div>
         <div class="module-content">
           <p class="warning">SECURITY ALERT: OWASP TOP 10 VULNERABILITIES</p>
-      
+
           <h3>// WHAT IS OWASP?</h3>
-          <p>The Open Web Application Security Project (OWASP) identifies the most critical security risks to web applications.</p>
-      
-          <h3>// THE OWASP TOP 10 (2021)</h3>
-          
-          <p>1. <span class="command">Broken Access Control</span></p>
-          <p>When users can access unauthorized functionality or data.</p>
-          <p class="defense">Defense: Implement proper authorization checks, use RBAC.</p>
-          
-          <p>2. <span class="command">Cryptographic Failures</span></p>
-          <p>Failing to protect sensitive data with proper encryption.</p>
-          <p class="defense">Defense: Use TLS, encrypt sensitive data, secure key management.</p>
-          
-          <p>3. <span class="command">Injection</span></p>
-          <p>When untrusted data is sent to an interpreter (SQL, OS, LDAP).</p>
-          <p class="defense">Defense: Use parameterized queries, input validation.</p>
-          
-          <p>4. <span class="command">Insecure Design</span></p>
-          <p>Lack of security controls by design, not just implementation.</p>
-          <p class="defense">Defense: Threat modeling, secure design patterns, user stories.</p>
-          
-          <p>5. <span class="command">Security Misconfiguration</span></p>
-          <p>Insecure default configurations, incomplete setup, open cloud storage.</p>
-          <p class="defense">Defense: Secure configuration, minimal platforms, automation.</p>
-          
-          <p>6. <span class="command">Vulnerable Components</span></p>
-          <p>Using components with known vulnerabilities.</p>
-          <p class="defense">Defense: Dependency scanning, regular updates.</p>
-          
-          <p>7. <span class="command">ID & Authentication Failures</span></p>
-          <p>Incorrectly implemented authentication and session management.</p>
-          <p class="defense">Defense: MFA, strong password policies, secure session handling.</p>
-          
-          <p>8. <span class="command">Software & Data Integrity Failures</span></p>
-          <p>Lack of integrity verification in code and data.</p>
-          <p class="defense">Defense: Digital signatures, CI/CD security, integrity checks.</p>
-          
-          <p>9. <span class="command">Security Logging & Monitoring Failures</span></p>
-          <p>Insufficient logging to detect breaches.</p>
-          <p class="defense">Defense: Implement logging, monitoring, alerting, incident response.</p>
-          
-          <p>10. <span class="command">Server-Side Request Forgery</span></p>
-          <p>When an application fetches remote resources without validation.</p>
-          <p class="defense">Defense: Network segmentation, allow-lists, disable redirects.</p>
-      
+          <p>
+            The Open Web Application Security Project (OWASP) identifies the
+            most critical security risks to web applications.
+          </p>
+
+          <h3>// PROMPT THESE INTO YOUR AI</h3>
+          <div class="code-block">
+            <p>
+              💬 "Explain each of the OWASP Top 10 vulnerabilities to me like
+              I'm new to web development."
+            </p>
+            <p>
+              💬 "Scan my codebase and tell me if I’m vulnerable to any OWASP
+              Top 10 risks."
+            </p>
+            <p>
+              💬 "Help me implement access control to protect against broken
+              access control."
+            </p>
+            <p>
+              💬 "Audit my app for cryptographic failures and suggest secure
+              encryption methods."
+            </p>
+            <p>
+              💬 "Show me how to log and monitor security events in my app for
+              intrusion detection."
+            </p>
+          </div>
+
+          <h3>// THE OWASP TOP 10 (2021) — QUICK VIEW</h3>
+
+          <p>
+            1. <span class="command">Broken Access Control</span> – Users
+            accessing unauthorized data or functionality.
+          </p>
+          <p class="defense">
+            Defense: Prompt your AI to implement RBAC and route-level access
+            checks.
+          </p>
+
+          <p>
+            2. <span class="command">Cryptographic Failures</span> – Sensitive
+            data isn’t encrypted properly.
+          </p>
+          <p class="defense">
+            Defense: Ask for TLS setup, strong encryption, and secure key
+            storage.
+          </p>
+
+          <p>
+            3. <span class="command">Injection</span> – Malicious input is
+            executed as code.
+          </p>
+          <p class="defense">
+            Defense: Use prompts to refactor with parameterized queries and
+            input validation.
+          </p>
+
+          <p>
+            4. <span class="command">Insecure Design</span> – Weak app design
+            leaves gaps for attackers.
+          </p>
+          <p class="defense">
+            Defense: Ask your AI to guide you through threat modeling for your
+            project.
+          </p>
+
+          <p>
+            5. <span class="command">Security Misconfiguration</span> – Default,
+            exposed, or weak setups.
+          </p>
+          <p class="defense">
+            Defense: Use prompts to harden server configs and automate secure
+            defaults.
+          </p>
+
+          <p>
+            6. <span class="command">Vulnerable Components</span> – Using
+            outdated packages with known issues.
+          </p>
+          <p class="defense">
+            Defense: Ask AI to scan dependencies and set up automated updates.
+          </p>
+
+          <p>
+            7.
+            <span class="command"
+              >Identification & Authentication Failures</span
+            >
+            – Broken login systems.
+          </p>
+          <p class="defense">
+            Defense: Prompt your AI to implement MFA, strong password policies,
+            and secure sessions.
+          </p>
+
+          <p>
+            8. <span class="command">Software & Data Integrity Failures</span> –
+            Tampered code or updates.
+          </p>
+          <p class="defense">
+            Defense: Prompt AI to add digital signature checks or secure CI/CD
+            pipelines.
+          </p>
+
+          <p>
+            9.
+            <span class="command">Security Logging & Monitoring Failures</span>
+            – Breaches go undetected.
+          </p>
+          <p class="defense">
+            Defense: Ask your AI to help you log auth events and add alerts for
+            suspicious behavior.
+          </p>
+
+          <p>
+            10.
+            <span class="command">Server-Side Request Forgery (SSRF)</span> –
+            App fetches untrusted external URLs.
+          </p>
+          <p class="defense">
+            Defense: Use prompts to add allow-lists, input validation, and
+            disable redirects.
+          </p>
+
           <h3>// MISSION CHECKLIST</h3>
-          <p>✅ Understand each vulnerability category</p>
-          <p>✅ Scan your application for these vulnerabilities</p>
-          <p>✅ Implement defenses for each category</p>
-          <p>✅ Stay updated on the latest OWASP guidelines</p>
+          <p>✅ Understand each vulnerability category with AI assistance</p>
+          <p>✅ Scan your application for OWASP Top 10 risks</p>
+          <p>✅ Prompt your AI to patch and protect against each weakness</p>
+          <p>
+            ✅ Stay updated with the latest OWASP Top 10 versions and changes
+          </p>
         </div>
       </div>
-  
+
       <div class="module" id="about-module">
         <div class="module-header">== ABOUT VIBE CODE CHECK ==</div>
         <div class="module-content">
@@ -572,35 +698,48 @@ __     _____ ____  _____    ____ ___  ____  _____    ____ _   _ _____ ____ _  __
 \ \   / /_ _| __ )| ____|  / ___/ _ \|  _ \| ____|  / ___| | | | ____/ ___| |/ /
  \ \ / / | ||  _ \|  _|   | |  | | | | | | |  _|   | |   | |__| |  _|| |   | ' / 
   \ V /  | || |_) | |___  | |__| |_| | |_| | |___  | |___| |  | | |__| |___| . \ 
-   \_/  |___|____/|_____|  \____\___/|____/|_____|  \____|_|  |_|_____\____|_|\_\</pre>
+   \_/  |___|____/|_____|  \____\___/|____/|_____|  \____|_|  |_|_____\____|_|\_\</pre
+            >
           </div>
-      
+
           <h3>// PROJECT MISSION</h3>
-          <p>Vibe Code Check is an educational tool designed to help developers write more secure code through simple, actionable guidance.</p>
+          <p>
+            Vibe Code Check is an educational tool designed to help developers
+            write more secure code through simple, actionable guidance.
+          </p>
           <h3>// WHO IS THIS FOR?</h3>
           <p>- Junior developers learning web security fundamentals</p>
           <p>- Teams that want a quick reference for security best practices</p>
-          <p>- Anyone who wants to improve their vibe code's security posture</p>
-      
-          <h3>// SHARE & CONTRIBUTE</h3>
-          <p>This is an open source project. Feel free to share, fork, and contribute at:</p>
-          <p><a href="https://github.com/rachellarralde/vibe-code-check-me" target="_blank" rel="noopener noreferrer">github.com/rachellarralde/vibe-code-check-me</a></p>
-      
+          <p>
+            - Anyone who wants to improve their vibe code's security posture
+          </p>
+
           <h3>// CREATOR</h3>
           <p>Built with 💻 by Rachel Larralde</p>
-          <p>Twitter: <a href="https://twitter.com/witchaudio_" target="_blank" rel="noopener noreferrer">@witchaudio_</a></p>
-      
+          <p>
+            Twitter:
+            <a
+              href="https://twitter.com/witchaudio_"
+              target="_blank"
+              rel="noopener noreferrer"
+              >@witchaudio_</a
+            >
+          </p>
+
           <h3>// DISCLAIMER</h3>
-          <p>This tool provides general security guidance but is not a substitute for a professional security audit. Always consult with security experts for production systems.</p>
-      
+          <p>
+            This tool provides general security guidance but is not a substitute
+            for a professional security audit. Always consult with security
+            experts for production systems.
+          </p>
+
           <h3>// VERSION</h3>
           <p>vibecodecheck.me v1.0</p>
-          <p>Last Updated: 2025-03-27</p>
+          <p>Last Updated: 2025-03-29</p>
         </div>
       </div>
-  
+
       <!-- you can add more modules here -->
-      
     </div>
 
     <script src="script.js"></script>

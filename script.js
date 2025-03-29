@@ -204,22 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
 
-    // Only scroll to bottom if we're not displaying a module
-    if (
-      ![
-        "help",
-        "secrets",
-        "injection",
-        "xss",
-        "auth",
-        "deps",
-        "headers",
-        "tools",
-        "owasp",
-        "about",
-        "trivia",
-      ].includes(command)
-    ) {
+    // Remove automatic scrolling when displaying modules
+    if (!command.trim() || command === "clear") {
       terminalContent.scrollTop = terminalContent.scrollHeight;
     }
   }
@@ -247,6 +233,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     commandsHistory.appendChild(responseElement);
+
+    // Only scroll when adding responses
+    terminalContent.scrollTop = terminalContent.scrollHeight;
   }
 
   // Display a module in the module window
@@ -255,6 +244,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const originalModule = document.getElementById(moduleId);
 
     if (originalModule) {
+      // Store current scroll position
+      const currentScroll = window.scrollY;
+
       // Update the module window title
       moduleTitle.textContent = title;
 
@@ -282,6 +274,8 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         moduleWindow.style.opacity = "1";
         moduleWindow.style.transition = "opacity 0.3s ease-in-out";
+        // Restore scroll position
+        window.scrollTo(0, currentScroll);
       }, 50);
     }
   }
@@ -483,4 +477,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Uncomment to enable keystroke sounds
   // addKeyStrokeSounds();
+
+  // Prevent automatic scrolling in terminal content
+  terminalContent.addEventListener("scroll", function (e) {
+    e.stopPropagation();
+  });
+
+  // Prevent scroll restoration
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
 });
