@@ -1,44 +1,56 @@
-# Vibe Code Check Terminal
+# VibeCodeCheck
 
-A retro-style terminal interface that provides interactive security guidance for vibe coders.
+**Your Developer Wrapped.** Discover your coding personality. See your code like never before.
 
-## 🚀 Features
+A Spotify Wrapped-inspired experience for developers. Enter any GitHub username and get a full vibe check — AI-powered aura readings, savage commit roasts, personalized playlists, and more.
 
-- Interactive terminal-style interface
-- Comprehensive security modules covering:
-  - Secrets Management
-  - SQL Injection Defense
-  - Cross-Site Scripting (XSS) Protection
-  - Authentication Best Practices
-  - Dependency Security
-  - HTTP Security Headers
-  - Security Tools Guide
-  - OWASP Top 10 Overview
+**Live at [vibecodecheck.me](https://vibecodecheck.me)**
 
-## 🛠️ Tech Stack
+---
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- VT323 Font (Google Fonts)
+## What You Get
 
-### 💻 Usage
+**Profile Overview** — Your GitHub stats at a glance: repos, stars, followers, account age.
 
-1. Type help to see all available commands
-2. Use any command to explore different security topics
-3. Read through the guidance and examples
-4. Try implementing the security checklist items in your projects
+**Top Languages** — See your #1 language and full breakdown with animated bars.
 
-## 👩‍💻 Creator
+**Developer Mood Ring** — Burnout score, flow state, diversity index, and consistency check. Are you zen, grinding, scattered, or in the zone?
 
-Built with 💻 by Rachel Larralde
-Twitter: @witchaudio\_
+**GitHub Aura Generator** — A mystical AI-generated developer identity with element, rarity, and special power. Are you a Midnight Rust Alchemist or a Chaotic TypeScript Oracle?
 
-## ⚠️ Disclaimer
+**Commit Roast** — Three savage (but funny) AI-generated roast lines based on your actual coding habits. You asked for this.
 
-This tool provides general security guidance but is not a substitute for a professional security audit. Always consult with security experts for production systems.
+**Open Source Soulmates** — AI-curated project recommendations matched to your skills, mood, and coding patterns.
 
-## 🔄 Version
+**Coding Spotify Playlist** — Five real songs that match your coding energy, with direct Spotify links.
 
-Current Version: 1.0
-Last Updated: 2025-03-27
+---
+
+## Tech Stack
+
+- **Vanilla JS** with ES modules — no framework overhead
+- **Vite** for builds, outputs static files
+- **Groq AI** (Llama 3.3 70B) for aura, roast, playlist, and soulmate features
+- **GitHub API** for all developer data (public, no auth required)
+- **Dela Gothic One + Outfit** fonts
+- **GitHub Pages** for deployment
+
+## Local Development
+
+```bash
+# install
+bun install
+
+# create .env with your Groq API key
+echo "VITE_GROQ_API_KEY=your_key_here" > .env
+
+# run dev server
+bun run dev
+
+# build for production
+bun run build
+```
+
+## Creator
+
+Built by **Rachel Larralde** — [@witchaudio_](https://twitter.com/witchaudio_)
