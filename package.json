@@ -1,0 +1,14 @@
+{
+  "name": "vibe-code-check",
+  "version": "2.0.0",
+  "description": "Developer Vibes Platform — Mood Ring, Soulmate Matcher, Code Playlist",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.0.1"
+  }
+}

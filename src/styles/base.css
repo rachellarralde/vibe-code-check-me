@@ -1,0 +1,101 @@
+/* ============================
+   BASE — Reset, tokens, global
+   ============================ */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #121212;
+  --green: #1DB954;
+  --green-light: #1ed760;
+  --green-dark: #158f3e;
+  --white: #ffffff;
+  --gray-100: #b3b3b3;
+  --gray-200: #a7a7a7;
+  --gray-300: #727272;
+  --gray-400: #535353;
+  --gray-500: #282828;
+  --gray-600: #181818;
+  --red: #e8115b;
+  --orange: #ff6b35;
+  --purple: #7b2fbe;
+  --teal: #00bcd4;
+  --yellow: #f5c518;
+
+  --font-display: 'Dela Gothic One', cursive;
+  --font-body: 'Outfit', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 500px;
+  --radius-round: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--green-light);
+  text-decoration: underline;
+}
+
+/* Screen system */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.screen.active {
+  opacity: 1;
+  pointer-events: all;
+  z-index: 10;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gray-400); border-radius: 4px; }
+
+/* Selection */
+::selection {
+  background: var(--green);
+  color: var(--bg);
+}
